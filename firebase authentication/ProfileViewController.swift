@@ -70,14 +70,17 @@ class ProfileViewController: UIViewController {
         let changeUserInfoAction = UIAlertAction(title: "Change name and image", style: .default) { (action: UIAlertAction) in
             self.changeUserInfo()
         }
+        
         let changeEmailAction = UIAlertAction(title: "Change Email", style: .default) { (action: UIAlertAction) in
-            
+            self.changeEmail()
         }
+        
         let changePasswordAction = UIAlertAction(title: "Change Password", style: .default) { (action: UIAlertAction) in
-            
+            self.changePassword()
         }
+        
         let deleteAccountAction = UIAlertAction(title: "Delete Account", style: .default) { (action: UIAlertAction) in
-            
+            self.deleteAccount()
         }
         
         manageActionSheet.addAction(changeUserInfoAction)
@@ -125,6 +128,82 @@ class ProfileViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(confirmAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func changePassword() {
+        let alert = UIAlertController(title: "Change Password", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Enter your new password"
+            textField.clearButtonMode = .whileEditing
+            textField.isSecureTextEntry = true
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
+            let textField = alert.textFields![0]
+            
+            let user = FIRAuth.auth()?.currentUser
+            user?.updatePassword(textField.text!) { error in
+                if let error = error {
+                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                } else {
+                    AppDelegate.showAlertMsg(withViewController: self, message: "Password was updated")
+                }
+            }
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func changeEmail() {
+        let alert = UIAlertController(title: "Change Email", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Enter your new email"
+            textField.clearButtonMode = .whileEditing
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
+            let textField = alert.textFields![0]
+            
+            let user = FIRAuth.auth()?.currentUser
+            user?.updateEmail(textField.text!) { error in
+                if let error = error {
+                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                } else {
+                    AppDelegate.showAlertMsg(withViewController: self, message: "Email was updated")
+                    self.setUserDataToView(withFIRUser: user!)
+                }
+            }
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteAccount() {
+        if let user = FIRAuth.auth()?.currentUser {
+            let alert = UIAlertController(title: "Delete Account", message: "[\(user.email!)] will be deleted. This operation can not undo. Are you sure?", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
+                user.delete { error in
+                    if let error = error {
+                        AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                    } else {
+                        AppDelegate.showAlertMsg(withViewController: self, message: "[\(user.email!)] was deleted")
+                        self.logout()
+                    }
+                }
+            }
+            
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
 }
