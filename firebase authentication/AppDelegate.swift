@@ -8,16 +8,19 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         FIRApp.configure()
+        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        
         return true
     }
 
@@ -43,6 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    static func showAlertMsg(withViewController vc: UIViewController, message: String) {
+        let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        vc.present(alert, animated: true, completion: nil)
+    }
 
 }
 
