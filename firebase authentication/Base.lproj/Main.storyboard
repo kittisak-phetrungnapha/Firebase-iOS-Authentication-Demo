@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-zn-Y6a">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-zn-Y6a">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -45,24 +45,33 @@
                                     <action selector="resetPasswordButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLG-hN-ja8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAw-lv-32V">
+                                <state key="normal" title="Anonymous Login"/>
+                                <connections>
+                                    <action selector="anonymousLoginButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bM-bQ-afs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Vbh-dF-Ylh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="99.5" id="00q-a3-uIu"/>
+                            <constraint firstItem="8Ak-UY-T7S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-14.5" id="2rZ-el-5dh"/>
+                            <constraint firstItem="dyJ-T4-oQ2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="61.5" id="3uZ-n9-N09"/>
                             <constraint firstItem="dyJ-T4-oQ2" firstAttribute="trailing" secondItem="5kJ-y6-a4f" secondAttribute="trailing" id="5Sr-U1-QNC"/>
                             <constraint firstItem="Vbh-dF-Ylh" firstAttribute="trailing" secondItem="dyJ-T4-oQ2" secondAttribute="trailing" id="84K-Kc-d8d"/>
                             <constraint firstAttribute="trailing" secondItem="Rkm-zn-Y6a" secondAttribute="trailing" constant="16" id="C6B-yk-Caz"/>
-                            <constraint firstItem="dyJ-T4-oQ2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="61.5" id="M4q-qW-oFL"/>
                             <constraint firstItem="5kJ-y6-a4f" firstAttribute="trailing" secondItem="8Ak-UY-T7S" secondAttribute="trailing" id="O3s-4F-Cl9"/>
-                            <constraint firstItem="5kJ-y6-a4f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="23.5" id="OuQ-TJ-pdd"/>
                             <constraint firstItem="8Ak-UY-T7S" firstAttribute="trailing" secondItem="Rkm-zn-Y6a" secondAttribute="trailing" id="RQr-4P-e7a"/>
-                            <constraint firstItem="Vbh-dF-Ylh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="99.5" id="Tiw-8c-ICD"/>
+                            <constraint firstItem="EAw-lv-32V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="137.5" id="W4p-NN-67q"/>
                             <constraint firstItem="5kJ-y6-a4f" firstAttribute="leading" secondItem="8Ak-UY-T7S" secondAttribute="leading" id="Xn3-Fb-nUx"/>
                             <constraint firstItem="dyJ-T4-oQ2" firstAttribute="leading" secondItem="5kJ-y6-a4f" secondAttribute="leading" id="Xpc-KN-deO"/>
                             <constraint firstItem="8Ak-UY-T7S" firstAttribute="leading" secondItem="Rkm-zn-Y6a" secondAttribute="leading" id="bPo-El-yHg"/>
-                            <constraint firstItem="Rkm-zn-Y6a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-52.5" id="dzD-lP-KcZ"/>
+                            <constraint firstItem="5kJ-y6-a4f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="23.5" id="etU-q5-npg"/>
                             <constraint firstItem="Vbh-dF-Ylh" firstAttribute="leading" secondItem="dyJ-T4-oQ2" secondAttribute="leading" id="gWs-DN-vau"/>
+                            <constraint firstItem="EAw-lv-32V" firstAttribute="trailing" secondItem="Vbh-dF-Ylh" secondAttribute="trailing" id="iC9-h8-Bh0"/>
+                            <constraint firstItem="EAw-lv-32V" firstAttribute="leading" secondItem="Vbh-dF-Ylh" secondAttribute="leading" id="nED-kw-84y"/>
                             <constraint firstItem="Rkm-zn-Y6a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="pSC-lO-AhU"/>
-                            <constraint firstItem="8Ak-UY-T7S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-14.5" id="sdI-AD-1PM"/>
+                            <constraint firstItem="Rkm-zn-Y6a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-52.5" id="wag-SS-UwR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="sqf-GJ-uJh"/>

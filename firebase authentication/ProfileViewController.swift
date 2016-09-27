@@ -11,11 +11,15 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - Property
+    
     @IBOutlet weak var providerIDValueLabel: UILabel!
     @IBOutlet weak var uidValueLabel: UILabel!
     @IBOutlet weak var emailValueLabel: UILabel!
     @IBOutlet weak var nameValueLabel: UILabel!
     @IBOutlet weak var photoUrlValueLabel: UILabel!
+    
+    // MARK: - View controller life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,10 @@ class ProfileViewController: UIViewController {
             emailValueLabel.text = user.email
             nameValueLabel.text = user.displayName
             photoUrlValueLabel.text = user.photoURL?.absoluteString
+            
+            if user.isAnonymous {
+                AppDelegate.showAlertMsg(withViewController: self, message: "You are an Anonymous!")
+            }
         } else {
             let alert = UIAlertController(title: "Message", message: "No user is signed in", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
@@ -38,6 +46,8 @@ class ProfileViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    // MARK: - Method
     
     func logout() {
         try! FIRAuth.auth()!.signOut()
