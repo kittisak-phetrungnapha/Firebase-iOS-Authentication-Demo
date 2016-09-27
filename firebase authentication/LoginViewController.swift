@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
             textField.placeholder = "Enter your email"
             textField.clearButtonMode = .whileEditing
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
             let textField = resetPasswordAlert.textFields![0]
             
