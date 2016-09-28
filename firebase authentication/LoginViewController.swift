@@ -26,11 +26,6 @@ class LoginViewController: UIViewController {
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
             }
-            else {
-                if !user!.isEmailVerified {
-                    AppDelegate.showAlertMsg(withViewController: self, message: "Please verify your email first")
-                }
-            }
         }
     }
     
@@ -38,9 +33,6 @@ class LoginViewController: UIViewController {
         FIRAuth.auth()?.createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-            }
-            else {
-                self.sentVerifiedEmail(withFIRUser: user!)
             }
         }
     }
@@ -87,10 +79,8 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         
         authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-            if let user = user {
-                if user.isAnonymous || user.isEmailVerified {
-                    self.goToProfilePage()
-                }
+            if let _ = user {
+                self.goToProfilePage()
             }
         })
     }
@@ -107,16 +97,6 @@ class LoginViewController: UIViewController {
         let profileNav = self.storyboard?.instantiateViewController(withIdentifier: "NavProfileViewController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = profileNav
-    }
-    
-    func sentVerifiedEmail(withFIRUser user: FIRUser) {
-        user.sendEmailVerification() { error in
-            if let error = error {
-                AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-            } else {
-                AppDelegate.showAlertMsg(withViewController: self, message: "Email verification has been sent to [\(user.email!)]")
-            }
-        }
     }
 
 }

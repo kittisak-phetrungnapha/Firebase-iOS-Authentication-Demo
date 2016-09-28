@@ -36,6 +36,9 @@ class ProfileViewController: UIViewController {
                 AppDelegate.showAlertMsg(withViewController: self, message: "You are an Anonymous. If you want to update the profile, you have to login first.")
                 manageProfileBarButton.isEnabled = false
             }
+            else if !user.isEmailVerified {
+                AppDelegate.showAlertMsg(withViewController: self, message: "Your account is not verified. Please select manage to verify it.")
+            }
         } else {
             let alert = UIAlertController(title: "Message", message: "No user is signed in", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
@@ -85,6 +88,14 @@ class ProfileViewController: UIViewController {
         
         manageActionSheet.addAction(changeUserInfoAction)
         manageActionSheet.addAction(changePasswordAction)
+        
+        if let user = FIRAuth.auth()?.currentUser, !user.isEmailVerified {
+            let verifyAccountAction = UIAlertAction(title: "Verify Account", style: .default) { (action: UIAlertAction) in
+                self.sentVerifiedEmail()
+            }
+            manageActionSheet.addAction(verifyAccountAction)
+        }
+        
         manageActionSheet.addAction(changeEmailAction)
         manageActionSheet.addAction(deleteAccountAction)
         manageActionSheet.addAction(cancelAction)
@@ -173,8 +184,8 @@ class ProfileViewController: UIViewController {
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {
-                    AppDelegate.showAlertMsg(withViewController: self, message: "Email was updated")
-                    self.setUserDataToView(withFIRUser: user!)
+                    AppDelegate.showAlertMsg(withViewController: self, message: "Email was updated. You have to login again.")
+                    self.logout()
                 }
             }
         }
@@ -203,6 +214,19 @@ class ProfileViewController: UIViewController {
             alert.addAction(cancelAction)
             alert.addAction(confirmAction)
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func sentVerifiedEmail() {
+        if let user = FIRAuth.auth()?.currentUser {
+            user.sendEmailVerification() { error in
+                if let error = error {
+                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                } else {
+                    AppDelegate.showAlertMsg(withViewController: self, message: "Email verification has been sent to [\(user.email!)]. Please check your email and verify it. Then login again.")
+                    self.logout()                    
+                }
+            }
         }
     }
 
