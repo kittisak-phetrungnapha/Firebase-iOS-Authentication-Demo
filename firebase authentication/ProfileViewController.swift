@@ -224,7 +224,7 @@ class ProfileViewController: UIViewController {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {
                     AppDelegate.showAlertMsg(withViewController: self, message: "Email verification has been sent to [\(user.email!)]. Please check your email and verify it. Then login again.")
-                    self.logout()                    
+                    self.logout()
                 }
             }
         }
