@@ -58,14 +58,6 @@ class LoginViewController: UIViewController {
         self.present(resetPasswordAlert, animated: true, completion: nil)
     }
     
-    @IBAction func anonymousLoginButtonTouch(_ sender: AnyObject) {
-        FIRAuth.auth()?.signInAnonymously() { [unowned self] (user, error) in
-            if let error = error {
-                AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-            }
-        }
-    }
-    
     // MARK: - View controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()

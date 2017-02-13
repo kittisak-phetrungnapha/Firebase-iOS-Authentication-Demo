@@ -53,13 +53,6 @@
                                     <action selector="resetPasswordButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLG-hN-ja8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAw-lv-32V">
-                                <rect key="frame" x="16" y="456" width="343" height="30"/>
-                                <state key="normal" title="Anonymous Login"/>
-                                <connections>
-                                    <action selector="anonymousLoginButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bM-bQ-afs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -71,14 +64,11 @@
                             <constraint firstAttribute="trailing" secondItem="Rkm-zn-Y6a" secondAttribute="trailing" constant="16" id="C6B-yk-Caz"/>
                             <constraint firstItem="5kJ-y6-a4f" firstAttribute="trailing" secondItem="8Ak-UY-T7S" secondAttribute="trailing" id="O3s-4F-Cl9"/>
                             <constraint firstItem="8Ak-UY-T7S" firstAttribute="trailing" secondItem="Rkm-zn-Y6a" secondAttribute="trailing" id="RQr-4P-e7a"/>
-                            <constraint firstItem="EAw-lv-32V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="137.5" id="W4p-NN-67q"/>
                             <constraint firstItem="5kJ-y6-a4f" firstAttribute="leading" secondItem="8Ak-UY-T7S" secondAttribute="leading" id="Xn3-Fb-nUx"/>
                             <constraint firstItem="dyJ-T4-oQ2" firstAttribute="leading" secondItem="5kJ-y6-a4f" secondAttribute="leading" id="Xpc-KN-deO"/>
                             <constraint firstItem="8Ak-UY-T7S" firstAttribute="leading" secondItem="Rkm-zn-Y6a" secondAttribute="leading" id="bPo-El-yHg"/>
                             <constraint firstItem="5kJ-y6-a4f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="23.5" id="etU-q5-npg"/>
                             <constraint firstItem="Vbh-dF-Ylh" firstAttribute="leading" secondItem="dyJ-T4-oQ2" secondAttribute="leading" id="gWs-DN-vau"/>
-                            <constraint firstItem="EAw-lv-32V" firstAttribute="trailing" secondItem="Vbh-dF-Ylh" secondAttribute="trailing" id="iC9-h8-Bh0"/>
-                            <constraint firstItem="EAw-lv-32V" firstAttribute="leading" secondItem="Vbh-dF-Ylh" secondAttribute="leading" id="nED-kw-84y"/>
                             <constraint firstItem="Rkm-zn-Y6a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="pSC-lO-AhU"/>
                             <constraint firstItem="Rkm-zn-Y6a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-52.5" id="wag-SS-UwR"/>
                         </constraints>

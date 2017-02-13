@@ -34,10 +34,6 @@ class SelectLoginMethodsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: selectedIndexPath, animated: true)
-        }
-        
         authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let _ = user {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -91,11 +87,17 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             print("Github")
             
         case LoginMethods.anonymous.rawValue:
-            print("Anonymous")
+            FIRAuth.auth()?.signInAnonymously() { [unowned self] (user, error) in
+                if let error = error {
+                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                }
+            }
             
         default:
             print("default")
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
