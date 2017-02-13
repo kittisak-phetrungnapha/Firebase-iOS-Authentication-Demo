@@ -71,7 +71,7 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
         
         switch loginMethods {
         case LoginMethods.email.rawValue:
-            let vc = UIViewController.getViewControllerWith(viewControllerIdentifier: ViewIdentifiers.login.rawValue)
+            let vc = UIViewController.getViewControllerWith(viewControllerIdentifier: ViewIdentifiers.email.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
             
         case LoginMethods.facebook.rawValue:

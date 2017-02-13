@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  EmailLoginViewController.swift
 //  firebase authentication
 //
 //  Created by Kittisak Phetrungnapha on 9/26/2559 BE.
@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import IQKeyboardManagerSwift
 
-class LoginViewController: UIViewController {
+class EmailLoginViewController: UIViewController {
 
     // MARK: - Property
     @IBOutlet weak var usernameTextField: UITextField!

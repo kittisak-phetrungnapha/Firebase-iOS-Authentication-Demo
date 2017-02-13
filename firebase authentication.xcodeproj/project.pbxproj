@@ -17,7 +17,7 @@
 		EECD76831D98E27D001C3422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECD76821D98E27D001C3422 /* Assets.xcassets */; };
 		EECD76861D98E27D001C3422 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECD76841D98E27D001C3422 /* LaunchScreen.storyboard */; };
 		EECD768E1D98E3A6001C3422 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EECD768D1D98E3A6001C3422 /* GoogleService-Info.plist */; };
-		EECD76901D992F4B001C3422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD768F1D992F4B001C3422 /* LoginViewController.swift */; };
+		EECD76901D992F4B001C3422 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD768F1D992F4B001C3422 /* EmailLoginViewController.swift */; };
 		EECD76921D9A1AF8001C3422 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD76911D9A1AF8001C3422 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,7 @@
 		EECD76851D98E27D001C3422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EECD76871D98E27D001C3422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EECD768D1D98E3A6001C3422 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EECD768F1D992F4B001C3422 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EECD768F1D992F4B001C3422 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		EECD76911D9A1AF8001C3422 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +116,7 @@
 				EECD76871D98E27D001C3422 /* Info.plist */,
 				EECD768D1D98E3A6001C3422 /* GoogleService-Info.plist */,
 				EE9FE4971E5186300085CBA2 /* SelectLoginMethodsViewController.swift */,
-				EECD768F1D992F4B001C3422 /* LoginViewController.swift */,
+				EECD768F1D992F4B001C3422 /* EmailLoginViewController.swift */,
 				EECD76911D9A1AF8001C3422 /* ProfileViewController.swift */,
 			);
 			path = "firebase authentication";
@@ -251,7 +251,7 @@
 				EE9FE49D1E519DCB0085CBA2 /* ViewIdentifiers.swift in Sources */,
 				EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */,
 				EE9FE49B1E5190F90085CBA2 /* LoginMethods.swift in Sources */,
-				EECD76901D992F4B001C3422 /* LoginViewController.swift in Sources */,
+				EECD76901D992F4B001C3422 /* EmailLoginViewController.swift in Sources */,
 				EE9FE4A11E519F2E0085CBA2 /* MyViewControllerExtension.swift in Sources */,
 				EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */,
 			);

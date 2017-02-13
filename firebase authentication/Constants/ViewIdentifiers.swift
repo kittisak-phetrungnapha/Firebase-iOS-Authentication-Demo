@@ -9,7 +9,7 @@
 import Foundation
 
 enum ViewIdentifiers: String {
-    case navLoginMethods = "NavLoginMethodsViewController"
-    case login = "LoginViewController"
+    case login = "NavLoginMethodsViewController"
+    case email = "EmailLoginViewController"
     case profile = "NavProfileViewController"
 }

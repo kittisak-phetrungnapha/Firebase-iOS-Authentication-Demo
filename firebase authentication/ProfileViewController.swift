@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController {
     func logout() {
         try! FIRAuth.auth()!.signOut()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.navLoginMethods.rawValue)
+        appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.login.rawValue)
     }
     
     func manageProfile() {
