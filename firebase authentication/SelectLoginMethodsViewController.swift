@@ -68,6 +68,7 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let loginMethods = dataSource[indexPath.row]
+        UserDefaults.standard.set(loginMethods, forKey: UserDefaultsKey.loginMethod.rawValue)
         
         switch loginMethods {
         case LoginMethods.email.rawValue:
@@ -78,7 +79,13 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             FacebookSdkAdapter.shared.performLoginWith(viewController: self, completion: { [unowned self] (loginResult :FacebookSdkAdapter.LoginResult) in
                 switch loginResult {
                 case .success(let facebookToken):
-                    print("[Facebook Token] \(facebookToken)")
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookToken)
+                    FIRAuth.auth()?.signIn(with: credential, completion: { [unowned self] (user: FIRUser?, error: Error?) in
+                        if let error = error {
+                            AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                        }
+                    })
+                    
                 case .error(let errorMessage):
                     AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
                 case .cancel():

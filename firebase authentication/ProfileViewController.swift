@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Method
     private func setUserDataToView(withFIRUser user: FIRUser) {
-        providerIDValueLabel.text = user.providerID
+        providerIDValueLabel.text = UserDefaults.standard.value(forKey: UserDefaultsKey.loginMethod.rawValue) as! String?
         uidValueLabel.text = user.uid
         emailValueLabel.text = user.email
         nameValueLabel.text = user.displayName
@@ -57,7 +57,16 @@ class ProfileViewController: UIViewController {
     }
     
     func logout() {
+        switch providerIDValueLabel.text! {
+        case LoginMethods.facebook.rawValue:
+            FacebookSdkAdapter.shared.performLogout()
+        default:
+            break
+        }
+        
         try! FIRAuth.auth()!.signOut()
+        UserDefaults.standard.set(nil, forKey: UserDefaultsKey.loginMethod.rawValue)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.login.rawValue)
     }

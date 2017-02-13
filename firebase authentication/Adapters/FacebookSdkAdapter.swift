@@ -48,4 +48,8 @@ struct FacebookSdkAdapter {
         }
     }
     
+    func performLogout() {
+        FBSDKLoginManager().logOut()
+    }
+    
 }
