@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		375A11B06FA96CA53045006A /* Pods_firebase_authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544EAD5668705AE8FA97E03F /* Pods_firebase_authentication.framework */; };
+		EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4971E5186300085CBA2 /* SelectLoginMethodsViewController.swift */; };
 		EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD767B1D98E27D001C3422 /* AppDelegate.swift */; };
 		EECD76811D98E27D001C3422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECD767F1D98E27D001C3422 /* Main.storyboard */; };
 		EECD76831D98E27D001C3422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECD76821D98E27D001C3422 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		3F95AC8F40D0E2D95CCD790A /* Pods-firebase authentication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebase authentication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firebase authentication/Pods-firebase authentication.debug.xcconfig"; sourceTree = "<group>"; };
 		544EAD5668705AE8FA97E03F /* Pods_firebase_authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebase_authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F4B6F988EAA0D3F0404668 /* Pods-firebase authentication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebase authentication.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebase authentication/Pods-firebase authentication.release.xcconfig"; sourceTree = "<group>"; };
+		EE9FE4971E5186300085CBA2 /* SelectLoginMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLoginMethodsViewController.swift; sourceTree = "<group>"; };
 		EECD76781D98E27D001C3422 /* firebase authentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "firebase authentication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECD767B1D98E27D001C3422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EECD76801D98E27D001C3422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				EECD76841D98E27D001C3422 /* LaunchScreen.storyboard */,
 				EECD76871D98E27D001C3422 /* Info.plist */,
 				EECD768D1D98E3A6001C3422 /* GoogleService-Info.plist */,
+				EE9FE4971E5186300085CBA2 /* SelectLoginMethodsViewController.swift */,
 				EECD768F1D992F4B001C3422 /* LoginViewController.swift */,
 				EECD76911D9A1AF8001C3422 /* ProfileViewController.swift */,
 			);
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EECD76921D9A1AF8001C3422 /* ProfileViewController.swift in Sources */,
+				EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */,
 				EECD76901D992F4B001C3422 /* LoginViewController.swift in Sources */,
 				EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */,
 			);

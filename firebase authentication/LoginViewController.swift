@@ -13,16 +13,13 @@ import IQKeyboardManagerSwift
 class LoginViewController: UIViewController {
 
     // MARK: - Property
-    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    var authListener: FIRAuthStateDidChangeListenerHandle?
+    private var authListener: FIRAuthStateDidChangeListenerHandle?
     
     // MARK: - Action
-    
     @IBAction func loginButtonTouch(_ sender: AnyObject) {
-        FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { [unowned self] (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
             }
@@ -30,7 +27,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonTouch(_ sender: AnyObject) {
-        FIRAuth.auth()?.createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
+        FIRAuth.auth()?.createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { [unowned self] (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
             }
@@ -47,7 +44,7 @@ class LoginViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
             let textField = resetPasswordAlert.textFields![0]
             
-            FIRAuth.auth()?.sendPasswordReset(withEmail: textField.text!) { error in
+            FIRAuth.auth()?.sendPasswordReset(withEmail: textField.text!) { [unowned self] error in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {
@@ -62,7 +59,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func anonymousLoginButtonTouch(_ sender: AnyObject) {
-        FIRAuth.auth()?.signInAnonymously() { (user, error) in
+        FIRAuth.auth()?.signInAnonymously() { [unowned self] (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
             }
@@ -70,7 +67,6 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - View controller life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -78,7 +74,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        authListener = FIRAuth.auth()?.addStateDidChangeListener({ [unowned self] (auth, user) in
             if let _ = user {
                 self.goToProfilePage()
             }
@@ -92,8 +88,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Method
-    
-    func goToProfilePage() {
+    private func goToProfilePage() {
         let profileNav = self.storyboard?.instantiateViewController(withIdentifier: "NavProfileViewController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = profileNav
