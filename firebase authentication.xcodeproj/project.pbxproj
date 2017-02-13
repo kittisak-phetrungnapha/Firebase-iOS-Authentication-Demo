@@ -10,6 +10,8 @@
 		375A11B06FA96CA53045006A /* Pods_firebase_authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544EAD5668705AE8FA97E03F /* Pods_firebase_authentication.framework */; };
 		EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4971E5186300085CBA2 /* SelectLoginMethodsViewController.swift */; };
 		EE9FE49B1E5190F90085CBA2 /* LoginMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE49A1E5190F90085CBA2 /* LoginMethods.swift */; };
+		EE9FE49D1E519DCB0085CBA2 /* ViewIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE49C1E519DCB0085CBA2 /* ViewIdentifiers.swift */; };
+		EE9FE4A11E519F2E0085CBA2 /* MyViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */; };
 		EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD767B1D98E27D001C3422 /* AppDelegate.swift */; };
 		EECD76811D98E27D001C3422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECD767F1D98E27D001C3422 /* Main.storyboard */; };
 		EECD76831D98E27D001C3422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECD76821D98E27D001C3422 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		96F4B6F988EAA0D3F0404668 /* Pods-firebase authentication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebase authentication.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebase authentication/Pods-firebase authentication.release.xcconfig"; sourceTree = "<group>"; };
 		EE9FE4971E5186300085CBA2 /* SelectLoginMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLoginMethodsViewController.swift; sourceTree = "<group>"; };
 		EE9FE49A1E5190F90085CBA2 /* LoginMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMethods.swift; sourceTree = "<group>"; };
+		EE9FE49C1E519DCB0085CBA2 /* ViewIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewIdentifiers.swift; sourceTree = "<group>"; };
+		EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewControllerExtension.swift; sourceTree = "<group>"; };
 		EECD76781D98E27D001C3422 /* firebase authentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "firebase authentication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECD767B1D98E27D001C3422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EECD76801D98E27D001C3422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,8 +73,17 @@
 			isa = PBXGroup;
 			children = (
 				EE9FE49A1E5190F90085CBA2 /* LoginMethods.swift */,
+				EE9FE49C1E519DCB0085CBA2 /* ViewIdentifiers.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		EE9FE49F1E519EF90085CBA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EECD766F1D98E27C001C3422 = {
@@ -94,6 +107,7 @@
 		EECD767A1D98E27D001C3422 /* firebase authentication */ = {
 			isa = PBXGroup;
 			children = (
+				EE9FE49F1E519EF90085CBA2 /* Extensions */,
 				EE9FE4991E5190E90085CBA2 /* Constants */,
 				EECD767B1D98E27D001C3422 /* AppDelegate.swift */,
 				EECD767F1D98E27D001C3422 /* Main.storyboard */,
@@ -234,9 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EECD76921D9A1AF8001C3422 /* ProfileViewController.swift in Sources */,
+				EE9FE49D1E519DCB0085CBA2 /* ViewIdentifiers.swift in Sources */,
 				EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */,
 				EE9FE49B1E5190F90085CBA2 /* LoginMethods.swift in Sources */,
 				EECD76901D992F4B001C3422 /* LoginViewController.swift in Sources */,
+				EE9FE4A11E519F2E0085CBA2 /* MyViewControllerExtension.swift in Sources */,
 				EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

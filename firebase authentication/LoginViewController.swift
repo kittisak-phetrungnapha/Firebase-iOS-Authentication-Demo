@@ -69,14 +69,15 @@ class LoginViewController: UIViewController {
     // MARK: - View controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Login with Email"
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        authListener = FIRAuth.auth()?.addStateDidChangeListener({ [unowned self] (auth, user) in
+        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let _ = user {
-                self.goToProfilePage()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.profile.rawValue)
             }
         })
     }
@@ -85,13 +86,6 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         let _ = IQKeyboardManager.sharedManager().resignFirstResponder()
         FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
-    }
-    
-    // MARK: - Method
-    private func goToProfilePage() {
-        let profileNav = self.storyboard?.instantiateViewController(withIdentifier: "NavProfileViewController")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = profileNav
     }
 
 }

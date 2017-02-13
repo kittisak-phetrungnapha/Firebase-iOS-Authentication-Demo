@@ -11,7 +11,7 @@
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="firebase_authentication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="firebase_authentication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2292" y="165.06746626686657"/>
+            <point key="canvasLocation" x="2842" y="278"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cmG-RV-KaX">
@@ -223,25 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEp-UD-RXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4015.1999999999998" y="164.16791604197903"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="nrc-oR-eWV">
-            <objects>
-                <navigationController storyboardIdentifier="NavLoginViewController" automaticallyAdjustsScrollViewInsets="NO" id="hvh-By-5Qb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fHl-La-KOc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aKr-lQ-Vdo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vQp-eA-OvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1352.8" y="165.06746626686657"/>
+            <point key="canvasLocation" x="2841" y="1018"/>
         </scene>
         <!--Select Login's method-->
         <scene sceneID="ERr-Gf-qhR">
@@ -279,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1XU-lI-DZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290.4000000000001" y="870.31484257871068"/>
+            <point key="canvasLocation" x="2039" y="278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gzi-ay-z2V">
@@ -297,12 +279,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZA-GG-3T8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076" y="164.16791604197903"/>
+            <point key="canvasLocation" x="2038" y="1018"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AIb-1w-hZ1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TNv-K8-e24" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavLoginMethodsViewController" automaticallyAdjustsScrollViewInsets="NO" id="TNv-K8-e24" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7z6-bV-Se1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -315,7 +297,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lr8-Or-oYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1351.2" y="870.31484257871068"/>
+            <point key="canvasLocation" x="1273" y="278"/>
         </scene>
     </scenes>
 </document>

@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SelectLoginMethodsViewController: UIViewController {
-
+    
     // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     fileprivate let cellIdentifier = "cell"
     fileprivate var dataSource: [String]!
+    private var authListener: FIRAuthStateDidChangeListenerHandle?
     
     // MARK: - View controller's life cycle
     override func viewDidLoad() {
@@ -28,7 +30,28 @@ class SelectLoginMethodsViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.isScrollEnabled = false
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+        
+        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if let _ = user {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.profile.rawValue)
+            }
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+    }
+    
 }
 
 extension SelectLoginMethodsViewController: UITableViewDataSource {
@@ -48,7 +71,31 @@ extension SelectLoginMethodsViewController: UITableViewDataSource {
 extension SelectLoginMethodsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let loginMethods = dataSource[indexPath.row]
         
+        switch loginMethods {
+        case LoginMethods.email.rawValue:
+            let vc = UIViewController.getViewControllerWith(viewControllerIdentifier: ViewIdentifiers.login.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case LoginMethods.facebook.rawValue:
+            print("Facebook")
+            
+        case LoginMethods.google.rawValue:
+            print("Google")
+            
+        case LoginMethods.twitter.rawValue:
+            print("Twitter")
+            
+        case LoginMethods.github.rawValue:
+            print("Github")
+            
+        case LoginMethods.anonymous.rawValue:
+            print("Anonymous")
+            
+        default:
+            print("default")
+        }
     }
     
 }

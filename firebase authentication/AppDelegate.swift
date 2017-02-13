@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alert.addAction(okAction)
         vc.present(alert, animated: true, completion: nil)
     }
+    
+    func setRootViewControllerWith(viewIdentifier: String) {
+        let vc = UIViewController.getViewControllerWith(viewControllerIdentifier: viewIdentifier)
+        window?.rootViewController = vc
+    }
 
 }
 
