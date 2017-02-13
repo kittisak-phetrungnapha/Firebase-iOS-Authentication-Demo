@@ -6,5 +6,7 @@ target 'firebase authentication' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'IQKeyboardManagerSwift'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
   
 end

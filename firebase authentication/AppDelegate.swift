@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,12 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(1)
         FIRApp.configure()
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
         return true
     }
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+    }
+    
+    // MARK: - Helper method
     static func showAlertMsg(withViewController vc: UIViewController, message: String) {
         let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

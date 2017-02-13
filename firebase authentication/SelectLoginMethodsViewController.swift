@@ -75,7 +75,16 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             
         case LoginMethods.facebook.rawValue:
-            print("Facebook")
+            FacebookSdkAdapter.shared.performLoginWith(viewController: self, completion: { [unowned self] (loginResult :FacebookSdkAdapter.LoginResult) in
+                switch loginResult {
+                case .success(let facebookToken):
+                    print("[Facebook Token] \(facebookToken)")
+                case .error(let errorMessage):
+                    AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
+                case .cancel():
+                    break
+                }
+            })
             
         case LoginMethods.google.rawValue:
             print("Google")

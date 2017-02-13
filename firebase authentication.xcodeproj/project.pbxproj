@@ -12,6 +12,7 @@
 		EE9FE49B1E5190F90085CBA2 /* LoginMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE49A1E5190F90085CBA2 /* LoginMethods.swift */; };
 		EE9FE49D1E519DCB0085CBA2 /* ViewIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE49C1E519DCB0085CBA2 /* ViewIdentifiers.swift */; };
 		EE9FE4A11E519F2E0085CBA2 /* MyViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */; };
+		EE9FE4A41E51BCE80085CBA2 /* FacebookSdkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4A31E51BCE80085CBA2 /* FacebookSdkAdapter.swift */; };
 		EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD767B1D98E27D001C3422 /* AppDelegate.swift */; };
 		EECD76811D98E27D001C3422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECD767F1D98E27D001C3422 /* Main.storyboard */; };
 		EECD76831D98E27D001C3422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECD76821D98E27D001C3422 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		EE9FE49A1E5190F90085CBA2 /* LoginMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMethods.swift; sourceTree = "<group>"; };
 		EE9FE49C1E519DCB0085CBA2 /* ViewIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewIdentifiers.swift; sourceTree = "<group>"; };
 		EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewControllerExtension.swift; sourceTree = "<group>"; };
+		EE9FE4A31E51BCE80085CBA2 /* FacebookSdkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSdkAdapter.swift; sourceTree = "<group>"; };
 		EECD76781D98E27D001C3422 /* firebase authentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "firebase authentication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECD767B1D98E27D001C3422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EECD76801D98E27D001C3422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EE9FE4A21E51BCD00085CBA2 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				EE9FE4A31E51BCE80085CBA2 /* FacebookSdkAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		EECD766F1D98E27C001C3422 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		EECD767A1D98E27D001C3422 /* firebase authentication */ = {
 			isa = PBXGroup;
 			children = (
+				EE9FE4A21E51BCD00085CBA2 /* Adapters */,
 				EE9FE49F1E519EF90085CBA2 /* Extensions */,
 				EE9FE4991E5190E90085CBA2 /* Constants */,
 				EECD767B1D98E27D001C3422 /* AppDelegate.swift */,
@@ -247,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9FE4A41E51BCE80085CBA2 /* FacebookSdkAdapter.swift in Sources */,
 				EECD76921D9A1AF8001C3422 /* ProfileViewController.swift in Sources */,
 				EE9FE49D1E519DCB0085CBA2 /* ViewIdentifiers.swift in Sources */,
 				EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */,

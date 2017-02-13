@@ -1,4 +1,14 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.19.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.19.0):
+    - FBSDKCoreKit
   - Firebase (3.12.0):
     - Firebase/Core (= 3.12.0)
   - Firebase/Auth (3.12.0):
@@ -39,11 +49,16 @@ PODS:
   - IQKeyboardManagerSwift (4.0.8)
 
 DEPENDENCIES:
+  - FBSDKCoreKit
+  - FBSDKLoginKit
   - Firebase
   - Firebase/Auth
   - IQKeyboardManagerSwift
 
 SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
+  FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
   Firebase: 8e99eb1ff553ad5bcc6072cc3d925bb89c1244d6
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseAuth: b436e4ecebe068bf8e8c6e4e29de5756ffe7ee24
@@ -55,6 +70,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
 
-PODFILE CHECKSUM: 7f84d7fdb7c7801e3c3da796043a3063479fb2f1
+PODFILE CHECKSUM: 5ca2b55ff401f41cf1b92cea5dd9b77efcc89de6
 
 COCOAPODS: 1.2.0
