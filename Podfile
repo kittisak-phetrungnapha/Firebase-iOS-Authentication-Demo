@@ -8,5 +8,6 @@ target 'firebase authentication' do
   pod 'IQKeyboardManagerSwift'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
   
 end

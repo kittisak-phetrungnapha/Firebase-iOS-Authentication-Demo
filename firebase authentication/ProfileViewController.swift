@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class ProfileViewController: UIViewController {
     
@@ -60,6 +61,8 @@ class ProfileViewController: UIViewController {
         switch providerIDValueLabel.text! {
         case LoginMethods.facebook.rawValue:
             FacebookSdkAdapter.shared.performLogout()
+        case LoginMethods.google.rawValue:
+            GIDSignIn.sharedInstance().signOut()
         default:
             break
         }
@@ -234,5 +237,5 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-
+    
 }

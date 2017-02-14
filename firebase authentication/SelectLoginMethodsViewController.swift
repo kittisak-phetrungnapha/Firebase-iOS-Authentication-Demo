@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class SelectLoginMethodsViewController: UIViewController {
     
@@ -29,6 +30,8 @@ class SelectLoginMethodsViewController: UIViewController {
                       LoginMethods.anonymous.rawValue]
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.isScrollEnabled = false
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,7 @@ class SelectLoginMethodsViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource
 extension SelectLoginMethodsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,6 +68,7 @@ extension SelectLoginMethodsViewController: UITableViewDataSource {
     
 }
 
+// MARK: - UITableViewDelegate
 extension SelectLoginMethodsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,7 +99,7 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             })
             
         case LoginMethods.google.rawValue:
-            print("Google")
+            GIDSignIn.sharedInstance().signIn()
             
         case LoginMethods.twitter.rawValue:
             print("Twitter")
@@ -115,5 +120,9 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+}
+
+extension SelectLoginMethodsViewController: GIDSignInUIDelegate {
     
 }
