@@ -63,6 +63,8 @@ class ProfileViewController: UIViewController {
             FacebookSdkAdapter.shared.performLogout()
         case LoginMethods.google.rawValue:
             GIDSignIn.sharedInstance().signOut()
+        case LoginMethods.twitter.rawValue:
+            TwitterSdkAdapter.shared.performLogout()
         default:
             break
         }

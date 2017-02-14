@@ -9,5 +9,8 @@ target 'firebase authentication' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
+  pod 'Fabric'
+  pod 'TwitterKit'
+  pod 'TwitterCore'
   
 end

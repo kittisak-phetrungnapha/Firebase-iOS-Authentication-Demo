@@ -11,6 +11,8 @@ import Firebase
 import IQKeyboardManagerSwift
 import FBSDKCoreKit
 import GoogleSignIn
+import Fabric
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        Fabric.with([Twitter.self])
+        
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
@@ -37,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                           sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                           annotation:[:])
         FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        
+        Twitter.sharedInstance().application(app, open:url, options: options)
         
         return true
     }

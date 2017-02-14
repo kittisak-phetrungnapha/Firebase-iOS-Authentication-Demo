@@ -102,7 +102,20 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             GIDSignIn.sharedInstance().signIn()
             
         case LoginMethods.twitter.rawValue:
-            print("Twitter")
+            TwitterSdkAdapter.shared.performLogin(completion: { [unowned self] (loginResult: TwitterSdkAdapter.LoginResult) in
+                switch loginResult {
+                case .success(let authToken, let authTokenSecret):
+                    let credential = FIRTwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
+                    FIRAuth.auth()?.signIn(with: credential, completion: { [unowned self] (user: FIRUser?, error: Error?) in
+                        if let error = error {
+                            AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                        }
+                    })
+                    
+                case .error(let errorMessage):
+                    AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
+                }
+            })
             
         case LoginMethods.github.rawValue:
             print("Github")

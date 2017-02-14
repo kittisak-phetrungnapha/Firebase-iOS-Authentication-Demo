@@ -14,6 +14,7 @@
 		EE9FE4A11E519F2E0085CBA2 /* MyViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */; };
 		EE9FE4A41E51BCE80085CBA2 /* FacebookSdkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE4A31E51BCE80085CBA2 /* FacebookSdkAdapter.swift */; };
 		EEB024BB1E521CDA005DA31B /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB024BA1E521CDA005DA31B /* UserDefaultsKey.swift */; };
+		EEB024C01E52EC0D005DA31B /* TwitterSdkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB024BF1E52EC0D005DA31B /* TwitterSdkAdapter.swift */; };
 		EECD767C1D98E27D001C3422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD767B1D98E27D001C3422 /* AppDelegate.swift */; };
 		EECD76811D98E27D001C3422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECD767F1D98E27D001C3422 /* Main.storyboard */; };
 		EECD76831D98E27D001C3422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EECD76821D98E27D001C3422 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		EE9FE4A01E519F2E0085CBA2 /* MyViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE9FE4A31E51BCE80085CBA2 /* FacebookSdkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSdkAdapter.swift; sourceTree = "<group>"; };
 		EEB024BA1E521CDA005DA31B /* UserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		EEB024BF1E52EC0D005DA31B /* TwitterSdkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterSdkAdapter.swift; sourceTree = "<group>"; };
 		EECD76781D98E27D001C3422 /* firebase authentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "firebase authentication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECD767B1D98E27D001C3422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EECD76801D98E27D001C3422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9FE4A31E51BCE80085CBA2 /* FacebookSdkAdapter.swift */,
+				EEB024BF1E52EC0D005DA31B /* TwitterSdkAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				EECD76761D98E27C001C3422 /* Resources */,
 				11DC3421AAA7F15C22DD30EC /* [CP] Embed Pods Frameworks */,
 				AC86444017CAD423CAAE8F96 /* [CP] Copy Pods Resources */,
+				EEB024BE1E52E586005DA31B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -254,6 +258,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-firebase authentication/Pods-firebase authentication-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EEB024BE1E52E586005DA31B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7cbc82b3dccc5a7a412bab8e1f541301250c1233 7b4698399aa390b22e5e87aff280f2b7f23ca76b8afa472cb05620f09e168bfd";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,6 +282,7 @@
 				EE9FE4A41E51BCE80085CBA2 /* FacebookSdkAdapter.swift in Sources */,
 				EECD76921D9A1AF8001C3422 /* ProfileViewController.swift in Sources */,
 				EE9FE49D1E519DCB0085CBA2 /* ViewIdentifiers.swift in Sources */,
+				EEB024C01E52EC0D005DA31B /* TwitterSdkAdapter.swift in Sources */,
 				EE9FE4981E5186300085CBA2 /* SelectLoginMethodsViewController.swift in Sources */,
 				EE9FE49B1E5190F90085CBA2 /* LoginMethods.swift in Sources */,
 				EECD76901D992F4B001C3422 /* EmailLoginViewController.swift in Sources */,
