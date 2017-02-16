@@ -13,6 +13,5 @@ enum LoginMethods: String {
     case facebook = "Facebook"
     case google = "Google"
     case twitter = "Twitter"
-    case github = "Github"
     case anonymous = "Anonymous"
 }

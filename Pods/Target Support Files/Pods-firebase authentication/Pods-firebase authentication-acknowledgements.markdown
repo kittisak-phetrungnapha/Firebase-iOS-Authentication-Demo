@@ -86,19 +86,19 @@ Copyright 2017 Google
 
 ## FirebaseAnalytics
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseAuth
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseCore
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseInstanceID
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## GTMOAuth2
 
@@ -512,21 +512,9 @@ Copyright 2016 Google
    limitations under the License.
 
 
-## GoogleAppUtilities
-
-Copyright 2016 Google
-
-## GoogleInterchangeUtilities
-
-Copyright 2016 Google
-
 ## GoogleSignIn
 
-Copyright 2016 Google
-
-## GoogleSymbolUtilities
-
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## GoogleToolboxForMac
 

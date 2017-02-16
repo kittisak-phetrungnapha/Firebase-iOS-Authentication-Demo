@@ -26,7 +26,6 @@ class SelectLoginMethodsViewController: UIViewController {
                       LoginMethods.facebook.rawValue,
                       LoginMethods.google.rawValue,
                       LoginMethods.twitter.rawValue,
-                      LoginMethods.github.rawValue,
                       LoginMethods.anonymous.rawValue]
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.isScrollEnabled = false
@@ -116,9 +115,6 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
                     AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
                 }
             })
-            
-        case LoginMethods.github.rawValue:
-            print("Github")
             
         case LoginMethods.anonymous.rawValue:
             FIRAuth.auth()?.signInAnonymously() { [unowned self] (user, error) in
