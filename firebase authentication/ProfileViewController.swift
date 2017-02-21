@@ -251,7 +251,7 @@ class ProfileViewController: UIViewController {
     
     private func deleteAccount() {
         if let user = FIRAuth.auth()?.currentUser {
-            let alert = UIAlertController(title: "Delete Account", message: "[\(user.email)] will be deleted. This operation can not undo. Are you sure?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete Account", message: "[\(user.email!)] will be deleted. This operation can not undo. Are you sure?", preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
             let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
@@ -259,7 +259,7 @@ class ProfileViewController: UIViewController {
                     if let error = error {
                         AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                     } else {
-                        AppDelegate.showAlertMsg(withViewController: self, message: "[\(user.email)] was deleted")
+                        AppDelegate.showAlertMsg(withViewController: self, message: "[\(user.email!)] was deleted.")
                         self.logout()
                     }
                 }

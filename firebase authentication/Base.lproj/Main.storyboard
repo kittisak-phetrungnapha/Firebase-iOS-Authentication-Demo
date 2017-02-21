@@ -215,7 +215,7 @@
             </objects>
             <point key="canvasLocation" x="2841" y="1018"/>
         </scene>
-        <!--Select Login methods-->
+        <!--Select Login's methods-->
         <scene sceneID="ERr-Gf-qhR">
             <objects>
                 <viewController id="opW-YR-kNB" customClass="SelectLoginMethodsViewController" customModule="firebase_authentication" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,7 +244,7 @@
                             <constraint firstItem="YDI-as-6UT" firstAttribute="leading" secondItem="1G8-to-gm5" secondAttribute="leading" id="z1O-io-gmP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Login methods" id="thm-Cd-g39"/>
+                    <navigationItem key="navigationItem" title="Select Login's methods" id="thm-Cd-g39"/>
                     <connections>
                         <outlet property="tableView" destination="YDI-as-6UT" id="CWa-j4-J9y"/>
                     </connections>
@@ -258,7 +258,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavProfileViewController" automaticallyAdjustsScrollViewInsets="NO" id="ar0-Bi-wKX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ENb-sH-ZJh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ENb-sH-ZJh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,7 +276,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavLoginMethodsViewController" automaticallyAdjustsScrollViewInsets="NO" id="TNv-K8-e24" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7z6-bV-Se1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7z6-bV-Se1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
