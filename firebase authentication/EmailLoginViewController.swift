@@ -19,7 +19,7 @@ class EmailLoginViewController: UIViewController {
     
     // MARK: - Action
     @IBAction func loginButtonTouch(_ sender: AnyObject) {
-        FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { [unowned self] (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
             }
@@ -27,7 +27,7 @@ class EmailLoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonTouch(_ sender: AnyObject) {
-        FIRAuth.auth()?.createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { [unowned self] (user, error) in
+        FIRAuth.auth()?.createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
             }
@@ -44,7 +44,7 @@ class EmailLoginViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
             let textField = resetPasswordAlert.textFields![0]
             
-            FIRAuth.auth()?.sendPasswordReset(withEmail: textField.text!) { [unowned self] error in
+            FIRAuth.auth()?.sendPasswordReset(withEmail: textField.text!) { error in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {

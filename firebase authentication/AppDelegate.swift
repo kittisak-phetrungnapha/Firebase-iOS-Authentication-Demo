@@ -75,7 +75,7 @@ extension AppDelegate: GIDSignInDelegate {
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
         
-        FIRAuth.auth()?.signIn(with: credential, completion: { [unowned self] (user: FIRUser?, error: Error?) in
+        FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
             if let error = error {
                 AppDelegate.showAlertMsg(withViewController: (self.window?.rootViewController)!, message: error.localizedDescription)
             }

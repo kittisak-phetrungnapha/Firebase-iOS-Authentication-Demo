@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController {
             }
         } else {
             let alert = UIAlertController(title: "Message", message: "No user is signed in", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: { [unowned self] (action: UIAlertAction) in
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
                 self.logout()
             })
             alert.addAction(okAction)
@@ -80,19 +80,19 @@ class ProfileViewController: UIViewController {
         let manageActionSheet = UIAlertController(title: "Select menu", message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        let changeUserInfoAction = UIAlertAction(title: "Change name and image", style: .default) { [unowned self] (action: UIAlertAction) in
+        let changeUserInfoAction = UIAlertAction(title: "Change name and image", style: .default) { (action: UIAlertAction) in
             self.changeUserInfo()
         }
         
-        let changeEmailAction = UIAlertAction(title: "Change Email", style: .default) { [unowned self] (action: UIAlertAction) in
+        let changeEmailAction = UIAlertAction(title: "Change Email", style: .default) { (action: UIAlertAction) in
             self.changeEmail()
         }
         
-        let changePasswordAction = UIAlertAction(title: "Change Password", style: .default) { [unowned self] (action: UIAlertAction) in
+        let changePasswordAction = UIAlertAction(title: "Change Password", style: .default) { (action: UIAlertAction) in
             self.changePassword()
         }
         
-        let deleteAccountAction = UIAlertAction(title: "Delete Account", style: .default) { [unowned self] (action: UIAlertAction) in
+        let deleteAccountAction = UIAlertAction(title: "Delete Account", style: .default) { (action: UIAlertAction) in
             self.deleteAccount()
         }
         
@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController {
         manageActionSheet.addAction(changePasswordAction)
         
         if let user = FIRAuth.auth()?.currentUser, !user.isEmailVerified {
-            let verifyAccountAction = UIAlertAction(title: "Verify Account", style: .default) { [unowned self] (action: UIAlertAction) in
+            let verifyAccountAction = UIAlertAction(title: "Verify Account", style: .default) { (action: UIAlertAction) in
                 self.sentVerifiedEmail()
             }
             manageActionSheet.addAction(verifyAccountAction)
@@ -135,7 +135,7 @@ class ProfileViewController: UIViewController {
                 
                 changeRequest.displayName = nameTextField.text
                 changeRequest.photoURL = NSURL(string: imageTextField.text!) as? URL
-                changeRequest.commitChanges { [unowned self] error in
+                changeRequest.commitChanges { error in
                     if let error = error {
                         AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                     } else {
@@ -164,7 +164,7 @@ class ProfileViewController: UIViewController {
             let textField = alert.textFields![0]
             
             let user = FIRAuth.auth()?.currentUser
-            user?.updatePassword(textField.text!) { [unowned self] error in
+            user?.updatePassword(textField.text!) { error in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {
@@ -190,7 +190,7 @@ class ProfileViewController: UIViewController {
             let textField = alert.textFields![0]
             
             let user = FIRAuth.auth()?.currentUser
-            user?.updateEmail(textField.text!) { [unowned self] error in
+            user?.updateEmail(textField.text!) { error in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {
@@ -207,15 +207,15 @@ class ProfileViewController: UIViewController {
     
     private func deleteAccount() {
         if let user = FIRAuth.auth()?.currentUser {
-            let alert = UIAlertController(title: "Delete Account", message: "[\(user.email!)] will be deleted. This operation can not undo. Are you sure?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete Account", message: "[\(user.email)] will be deleted. This operation can not undo. Are you sure?", preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
             let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
-                user.delete { [unowned self] error in
+                user.delete { error in
                     if let error = error {
                         AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                     } else {
-                        AppDelegate.showAlertMsg(withViewController: self, message: "[\(user.email!)] was deleted")
+                        AppDelegate.showAlertMsg(withViewController: self, message: "[\(user.email)] was deleted")
                         self.logout()
                     }
                 }
@@ -229,7 +229,7 @@ class ProfileViewController: UIViewController {
     
     private func sentVerifiedEmail() {
         if let user = FIRAuth.auth()?.currentUser {
-            user.sendEmailVerification() { [unowned self] error in
+            user.sendEmailVerification() { error in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 } else {

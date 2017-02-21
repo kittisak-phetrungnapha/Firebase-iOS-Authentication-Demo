@@ -17,6 +17,11 @@ struct FacebookSdkAdapter {
         
     }
     
+    enum Permission: String {
+        case public_profile = "public_profile"
+        case email = "email"
+    }
+    
     enum LoginResult {
         case success(String)
         case error(String)

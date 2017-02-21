@@ -80,11 +80,15 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             
         case LoginMethods.facebook.rawValue:
-            FacebookSdkAdapter.shared.performLoginWith(viewController: self, completion: { [unowned self] (loginResult :FacebookSdkAdapter.LoginResult) in
+            let permissions = [
+                FacebookSdkAdapter.Permission.public_profile.rawValue,
+                FacebookSdkAdapter.Permission.email.rawValue
+            ]
+            FacebookSdkAdapter.shared.performLoginWith(viewController: self, permissions: permissions, completion: { (loginResult :FacebookSdkAdapter.LoginResult) in
                 switch loginResult {
                 case .success(let facebookToken):
                     let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookToken)
-                    FIRAuth.auth()?.signIn(with: credential, completion: { [unowned self] (user: FIRUser?, error: Error?) in
+                    FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
                         if let error = error {
                             AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                         }
@@ -101,11 +105,11 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             GIDSignIn.sharedInstance().signIn()
             
         case LoginMethods.twitter.rawValue:
-            TwitterSdkAdapter.shared.performLogin(completion: { [unowned self] (loginResult: TwitterSdkAdapter.LoginResult) in
+            TwitterSdkAdapter.shared.performLogin(completion: { (loginResult: TwitterSdkAdapter.LoginResult) in
                 switch loginResult {
                 case .success(let authToken, let authTokenSecret):
                     let credential = FIRTwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
-                    FIRAuth.auth()?.signIn(with: credential, completion: { [unowned self] (user: FIRUser?, error: Error?) in
+                    FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
                         if let error = error {
                             AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                         }
@@ -117,7 +121,7 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             })
             
         case LoginMethods.anonymous.rawValue:
-            FIRAuth.auth()?.signInAnonymously() { [unowned self] (user, error) in
+            FIRAuth.auth()?.signInAnonymously() { (user, error) in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 }
