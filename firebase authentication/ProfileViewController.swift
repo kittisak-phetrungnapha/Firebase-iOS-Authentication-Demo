@@ -84,8 +84,16 @@ class ProfileViewController: UIViewController {
             self.changeUserInfo()
         }
         
-        let changeEmailAction = UIAlertAction(title: "Change Email", style: .default) { (action: UIAlertAction) in
-            self.changeEmail()
+        var emailAction: UIAlertAction!
+        if providerIDValueLabel.text == LoginMethods.twitter.rawValue && emailValueLabel.text == nil {
+            emailAction = UIAlertAction(title: "Sync with email", style: .default) { (action: UIAlertAction) in
+                self.syncWithAccountEmail()
+            }
+        }
+        else {
+            emailAction = UIAlertAction(title: "Change Email", style: .default) { (action: UIAlertAction) in
+                self.changeEmail()
+            }
         }
         
         let changePasswordAction = UIAlertAction(title: "Change Password", style: .default) { (action: UIAlertAction) in
@@ -106,7 +114,7 @@ class ProfileViewController: UIViewController {
             manageActionSheet.addAction(verifyAccountAction)
         }
         
-        manageActionSheet.addAction(changeEmailAction)
+        manageActionSheet.addAction(emailAction)
         manageActionSheet.addAction(deleteAccountAction)
         manageActionSheet.addAction(cancelAction)
         
@@ -198,6 +206,42 @@ class ProfileViewController: UIViewController {
                     self.logout()
                 }
             }
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func syncWithAccountEmail() {
+        let alert = UIAlertController(title: "Please enter the data", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Email"
+            textField.clearButtonMode = .whileEditing
+        }
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Password"
+            textField.clearButtonMode = .whileEditing
+            textField.isSecureTextEntry = true
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
+            let emailTextField = alert.textFields![0]
+            let passwordTextField = alert.textFields![1]
+            
+            guard let currentUser = FIRAuth.auth()?.currentUser else { return }
+            
+            let credential = FIREmailPasswordAuthProvider.credential(withEmail: emailTextField.text!, password: passwordTextField.text!)
+            currentUser.link(with: credential, completion: { (user, error) in
+                if let error = error {
+                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
+                    return
+                }
+                
+                AppDelegate.showAlertMsg(withViewController: self, message: "Twitter's account has been synced with \(emailTextField.text!).")
+                self.logout()
+            })
         }
         
         alert.addAction(cancelAction)

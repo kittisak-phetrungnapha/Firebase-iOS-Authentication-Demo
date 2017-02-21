@@ -34,7 +34,7 @@ struct FacebookSdkAdapter {
         let loginManager = FBSDKLoginManager()
         loginManager.logIn(withReadPermissions: permissions, from: viewController) { (result: FBSDKLoginManagerLoginResult?, error: Error?) in
             
-            if let error = error {
+            if let error = error {                
                 completion(.error(error.localizedDescription))
                 return
             }
