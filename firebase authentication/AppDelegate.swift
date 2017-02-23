@@ -71,6 +71,7 @@ extension AppDelegate: GIDSignInDelegate {
             return
         }
         
+        /*
         guard let authentication = user.authentication else { return }
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
@@ -80,6 +81,7 @@ extension AppDelegate: GIDSignInDelegate {
                 AppDelegate.showAlertMsg(withViewController: (self.window?.rootViewController)!, message: error.localizedDescription)
             }
         })
+        */
     }
     
 }

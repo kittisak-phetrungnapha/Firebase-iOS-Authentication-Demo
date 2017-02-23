@@ -36,18 +36,20 @@ class SelectLoginMethodsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        /*
         authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let _ = user {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.profile.rawValue)
             }
         })
+        */
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+//        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
     }
     
 }
@@ -80,14 +82,17 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             
         case LoginMethods.facebook.rawValue:
+            /*
             let permissions = [
                 FacebookSdkAdapter.Permission.public_profile.rawValue,
                 FacebookSdkAdapter.Permission.email.rawValue
             ]
             FacebookSdkAdapter.shared.performLoginWith(viewController: self, permissions: permissions, completion: { (loginResult :FacebookSdkAdapter.LoginResult) in
+             
                 switch loginResult {
                 case .success(let facebookToken):
                     let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookToken)
+             
                     FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
                         if let error = error {
                             AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
@@ -100,15 +105,21 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
                     break
                 }
             })
+            */
+            break
             
         case LoginMethods.google.rawValue:
-            GIDSignIn.sharedInstance().signIn()
+//            GIDSignIn.sharedInstance().signIn()
+            break
             
         case LoginMethods.twitter.rawValue:
+            /*
             TwitterSdkAdapter.shared.performLogin(completion: { (loginResult: TwitterSdkAdapter.LoginResult) in
+             
                 switch loginResult {
                 case .success(let authToken, let authTokenSecret):
                     let credential = FIRTwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
+             
                     FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
                         if let error = error {
                             AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
@@ -119,13 +130,18 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
                     AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
                 }
             })
+            */
+            break
             
         case LoginMethods.anonymous.rawValue:
+            /*
             FIRAuth.auth()?.signInAnonymously() { (user, error) in
                 if let error = error {
                     AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
                 }
             }
+            */
+            break
             
         default:
             print("default")
