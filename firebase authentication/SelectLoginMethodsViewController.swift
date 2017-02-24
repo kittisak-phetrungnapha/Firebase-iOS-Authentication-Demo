@@ -16,6 +16,7 @@ class SelectLoginMethodsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     fileprivate let cellIdentifier = "cell"
     fileprivate var dataSource: [String]!
+    
     private var authListener: FIRAuthStateDidChangeListenerHandle?
     
     // MARK: - View controller's life cycle
@@ -36,20 +37,13 @@ class SelectLoginMethodsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        /*
-        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-            if let _ = user {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.profile.rawValue)
-            }
-        })
-        */
+        // TODO: - Register auth listener.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-//        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+        // TODO: - Unregister auth listener.
     }
     
 }
@@ -82,65 +76,19 @@ extension SelectLoginMethodsViewController: UITableViewDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             
         case LoginMethods.facebook.rawValue:
-            /*
-            let permissions = [
-                FacebookSdkAdapter.Permission.public_profile.rawValue,
-                FacebookSdkAdapter.Permission.email.rawValue
-            ]
-            FacebookSdkAdapter.shared.performLoginWith(viewController: self, permissions: permissions, completion: { (loginResult :FacebookSdkAdapter.LoginResult) in
-             
-                switch loginResult {
-                case .success(let facebookToken):
-                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookToken)
-             
-                    FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
-                        if let error = error {
-                            AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                        }
-                    })
-                    
-                case .error(let errorMessage):
-                    AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
-                case .cancel():
-                    break
-                }
-            })
-            */
+            // TODO: - Perform Facebook login with Firebase.
             break
             
         case LoginMethods.google.rawValue:
-//            GIDSignIn.sharedInstance().signIn()
+            // TODO: - Perform Google sign in with Firebase.
             break
             
         case LoginMethods.twitter.rawValue:
-            /*
-            TwitterSdkAdapter.shared.performLogin(completion: { (loginResult: TwitterSdkAdapter.LoginResult) in
-             
-                switch loginResult {
-                case .success(let authToken, let authTokenSecret):
-                    let credential = FIRTwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
-             
-                    FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
-                        if let error = error {
-                            AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                        }
-                    })
-                    
-                case .error(let errorMessage):
-                    AppDelegate.showAlertMsg(withViewController: self, message: errorMessage)
-                }
-            })
-            */
+            // TODO: - Perform Twitter login with Firebase.
             break
             
         case LoginMethods.anonymous.rawValue:
-            /*
-            FIRAuth.auth()?.signInAnonymously() { (user, error) in
-                if let error = error {
-                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                }
-            }
-            */
+            // TODO: - Perform anonymous sign in.
             break
             
         default:

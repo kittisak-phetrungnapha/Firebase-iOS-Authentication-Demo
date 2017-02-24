@@ -15,27 +15,16 @@ class EmailLoginViewController: UIViewController {
     // MARK: - Property
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
     private var authListener: FIRAuthStateDidChangeListenerHandle?
     
     // MARK: - Action
     @IBAction func loginButtonTouch(_ sender: AnyObject) {
-        /*
-        FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if let error = error {
-                AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-            }
-        }
-        */
+        // TODO: - Perform email sign in.
     }
     
     @IBAction func registerButtonTouch(_ sender: AnyObject) {
-        /*
-        FIRAuth.auth()?.createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if let error = error {
-                AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-            }
-        }
-        */
+        // TODO: - Perform email register.
     }
     
     @IBAction func resetPasswordButtonTouch(_ sender: AnyObject) {
@@ -48,15 +37,7 @@ class EmailLoginViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
             let textField = resetPasswordAlert.textFields![0]
             
-            /*
-            FIRAuth.auth()?.sendPasswordReset(withEmail: textField.text!) { error in
-                if let error = error {
-                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                } else {
-                    AppDelegate.showAlertMsg(withViewController: self, message: "Password reset email was sent")
-                }
-            }
-            */
+            // TODO: - Reset password
         }
         
         resetPasswordAlert.addAction(cancelAction)
@@ -74,21 +55,14 @@ class EmailLoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        /*
-        authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-            if let _ = user {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.profile.rawValue)
-            }
-        })
-        */
+        // TODO: Register auth listener
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let _ = IQKeyboardManager.sharedManager().resignFirstResponder()
         
-//        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+        // TODO: - Unregister auth listener
     }
 
 }

@@ -25,10 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        // TODO: - Setup Google client id.
         
-        Fabric.with([Twitter.self])
+        // TODO: - Setup Twitter with Fabric.
         
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
@@ -37,12 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        GIDSignIn.sharedInstance().handle(url,
-                                          sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                          annotation:[:])
-        FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        // TODO: - Setup Google sign in callback url.
         
-        Twitter.sharedInstance().application(app, open:url, options: options)
+        // TODO: - Setup Facebook login callback url.
+        
+        // TODO: - Setup Twitter login callback url.
         
         return true
     }
@@ -71,17 +69,7 @@ extension AppDelegate: GIDSignInDelegate {
             return
         }
         
-        /*
-        guard let authentication = user.authentication else { return }
-        let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                          accessToken: authentication.accessToken)
-        
-        FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) in
-            if let error = error {
-                AppDelegate.showAlertMsg(withViewController: (self.window?.rootViewController)!, message: error.localizedDescription)
-            }
-        })
-        */
+        // TODO: - Auth Google's token with Firebase.
     }
     
 }

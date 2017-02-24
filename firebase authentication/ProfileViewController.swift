@@ -58,24 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     func logout() {
-        /*
-        switch providerIDValueLabel.text! {
-        case LoginMethods.facebook.rawValue:
-            FacebookSdkAdapter.shared.performLogout()
-         
-        case LoginMethods.google.rawValue:
-            GIDSignIn.sharedInstance().signOut()
-         
-        case LoginMethods.twitter.rawValue:
-            TwitterSdkAdapter.shared.performLogout()
-         
-        default:
-            break
-        }
-        
-        try! FIRAuth.auth()!.signOut()
-        UserDefaults.standard.set(nil, forKey: UserDefaultsKey.loginMethod.rawValue)
-        */
+        // TODO: - Perform sign out
  
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.setRootViewControllerWith(viewIdentifier: ViewIdentifiers.login.rawValue)
@@ -143,22 +126,7 @@ class ProfileViewController: UIViewController {
             let nameTextField = alert.textFields![0]
             let imageTextField = alert.textFields![1]
             
-            /*
-            if let user = FIRAuth.auth()?.currentUser {
-                let changeRequest = user.profileChangeRequest()
-                
-                changeRequest.displayName = nameTextField.text
-                changeRequest.photoURL = NSURL(string: imageTextField.text!) as? URL
-                changeRequest.commitChanges { error in
-                    if let error = error {
-                        AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                    } else {
-                        AppDelegate.showAlertMsg(withViewController: self, message: "Your profile was updated")
-                        self.setUserDataToView(withFIRUser: user)
-                    }
-                }
-            }
-            */
+            // TODO: - Change user profile
         }
         
         alert.addAction(cancelAction)
@@ -178,16 +146,7 @@ class ProfileViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
             let textField = alert.textFields![0]
             
-            /*
-            let user = FIRAuth.auth()?.currentUser
-            user?.updatePassword(textField.text!) { error in
-                if let error = error {
-                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                } else {
-                    AppDelegate.showAlertMsg(withViewController: self, message: "Password was updated")
-                }
-            }
-            */
+            // TODO: - Update password
         }
         
         alert.addAction(cancelAction)
@@ -206,17 +165,7 @@ class ProfileViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
             let textField = alert.textFields![0]
             
-            /*
-            let user = FIRAuth.auth()?.currentUser
-            user?.updateEmail(textField.text!) { error in
-                if let error = error {
-                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                } else {
-                    AppDelegate.showAlertMsg(withViewController: self, message: "Email was updated. You have to login again.")
-                    self.logout()
-                }
-            }
-            */
+            // TODO: - Update email
         }
         
         alert.addAction(cancelAction)
@@ -243,19 +192,7 @@ class ProfileViewController: UIViewController {
             
             guard let currentUser = FIRAuth.auth()?.currentUser else { return }
             
-            /*
-            let credential = FIREmailPasswordAuthProvider.credential(withEmail: emailTextField.text!, password: passwordTextField.text!)
-             
-            currentUser.link(with: credential, completion: { (user, error) in
-                if let error = error {
-                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                    return
-                }
-                
-                AppDelegate.showAlertMsg(withViewController: self, message: "Twitter's account has been synced with \(emailTextField.text!).")
-                self.logout()
-            })
-            */
+            // TODO: - Link multiple accounts
         }
         
         alert.addAction(cancelAction)
@@ -270,16 +207,7 @@ class ProfileViewController: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
             let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action: UIAlertAction) in
                 
-                /*
-                user.delete { error in
-                    if let error = error {
-                        AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                    } else {
-                        AppDelegate.showAlertMsg(withViewController: self, message: "[\(user.email!)] was deleted.")
-                        self.logout()
-                    }
-                }
-                */
+                // TODO: - Delete user
             }
             
             alert.addAction(cancelAction)
@@ -289,18 +217,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func sentVerifiedEmail() {
-        /*
-        if let user = FIRAuth.auth()?.currentUser {
-            user.sendEmailVerification() { error in
-                if let error = error {
-                    AppDelegate.showAlertMsg(withViewController: self, message: error.localizedDescription)
-                } else {
-                    AppDelegate.showAlertMsg(withViewController: self, message: "Email verification has been sent to [\(user.email!)]. Please check your email and verify it. Then login again.")
-                    self.logout()
-                }
-            }
-        }
-        */
+        // TODO: - Verify email
     }
     
 }
